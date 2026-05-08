@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '2.3.0'
+    id 'org.jetbrains.kotlin.jvm' version '2.3.21'
     id 'io.qameta.allure' version '3.0.1'
 }
 
@@ -41,7 +41,7 @@ dependencies {
     implementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '6.0.3'
 
     // Frontend
-    implementation group: 'com.codeborne', name: 'selenide', version: '7.15.1'
+    implementation group: 'com.codeborne', name: 'selenide', version: '7.16.0'
 
     // Backend
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '3.0.0'
@@ -50,7 +50,7 @@ dependencies {
 
     //Database
     def exposedVersion = "1.2.0"
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.10'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.11'
     implementation group: 'org.jetbrains.exposed', name: 'exposed-core', version: exposedVersion
     implementation group: 'org.jetbrains.exposed', name: 'exposed-jdbc', version: exposedVersion
 
@@ -60,8 +60,8 @@ dependencies {
     // Allure
     agent "org.aspectj:aspectjweaver:1.9.22" //создает html
     implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.25.1'
-    implementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.33.0'
-    implementation group: 'io.qameta.allure', name: 'allure-okhttp3', version: '2.33.0'
+    implementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.34.0'
+    implementation group: 'io.qameta.allure', name: 'allure-okhttp3', version: '2.34.0'
 }
 
 tasks.withType(JavaCompile).configureEach {
