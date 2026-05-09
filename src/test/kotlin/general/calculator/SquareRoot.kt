@@ -1,4 +1,4 @@
-package calculator
+package general.calculator
 
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
@@ -11,7 +11,7 @@ import kotlin.math.sqrt
 
 @Feature("Calculator")
 @Story("Square root tests")
-@Tags(Tag("calculator"), Tag("regress"), Tag("root"))
+@Tags(Tag("general/calculator"), Tag("regress"), Tag("root"))
 class SquareRoot {
 
     @Test

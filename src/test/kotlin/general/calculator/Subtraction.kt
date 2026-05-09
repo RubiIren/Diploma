@@ -1,4 +1,4 @@
-package calculator
+package general.calculator
 
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test
 
 @Feature("Calculator")
 @Story("Subtraction tests")
-@Tags(Tag("calculator"), Tag("regress"), Tag("sub"))
+@Tags(Tag("general/calculator"), Tag("regress"), Tag("sub"))
 class Subtraction {
 
     @Test

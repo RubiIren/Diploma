@@ -1,4 +1,4 @@
 package org.example.frontend.pages
 
-class MainPage {
+class ProductsPage {
 }

@@ -1,4 +1,4 @@
-package calculator
+package general.calculator
 
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tags
 
 @Feature("Calculator")
 @Story("Division tests")
-@Tags(Tag("calculator"), Tag("regress"), Tag("div"))
+@Tags(Tag("general/calculator"), Tag("regress"), Tag("div"))
 class Division {
 
     @Test
