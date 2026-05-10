@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tags
 
 @Feature("Calculator")
 @Story("Square tests")
-@Tags(Tag("general/calculator"), Tag("regress"), Tag("square"))
+@Tags(Tag("calculator"), Tag("square"))
 class Square {
 
     @Test

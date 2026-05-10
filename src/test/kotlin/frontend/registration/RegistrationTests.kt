@@ -1,18 +1,26 @@
 package frontend.registration
 
 import io.kotest.matchers.shouldBe
+import io.qameta.allure.Feature
+import io.qameta.allure.Story
 import org.example.frontend.components.HeaderComponent
 import org.example.frontend.components.popup.RegistrationPopup
 import org.example.frontend.helpers.BaseUiTest
 import org.example.frontend.pages.MainPage
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.Tags
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
+@Feature("Registration")
+@Story("Registration tests")
+@Tags(Tag("registration"), Tag("regress"), Tag("auth"))
 class RegistrationTests : BaseUiTest() {
 
     @ParameterizedTest
+    @Tag("error")
     @CsvSource(
         // имя, email, пароль, ожидаемая ошибка
         "'',user@ast.com,12345,'Please enter username, email and password'",  // пустое имя
@@ -39,7 +47,8 @@ class RegistrationTests : BaseUiTest() {
 
     @Test
     @DisplayName("Проверка создания пользователя")
-    fun testAuthUser(): Unit {
+    @Tag("crit")
+    fun testAuthUser() {
         val randomEmail = "user${System.currentTimeMillis()}@test.com"
 
         MainPage()

@@ -11,7 +11,7 @@ import kotlin.math.pow
 
 @Feature("Calculator")
 @Story("Cube tests")
-@Tags(Tag("general/calculator"), Tag("regress"), Tag("cube"))
+@Tags(Tag("calculator"), Tag("cube"))
 class Сube {
 
     @Test

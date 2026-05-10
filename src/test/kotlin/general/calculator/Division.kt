@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tags
 
 @Feature("Calculator")
 @Story("Division tests")
-@Tags(Tag("general/calculator"), Tag("regress"), Tag("div"))
+@Tags(Tag("calculator"), Tag("div"))
 class Division {
 
     @Test

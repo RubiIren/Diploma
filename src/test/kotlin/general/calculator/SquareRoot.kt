@@ -11,7 +11,7 @@ import kotlin.math.sqrt
 
 @Feature("Calculator")
 @Story("Square root tests")
-@Tags(Tag("general/calculator"), Tag("regress"), Tag("root"))
+@Tags(Tag("calculator"), Tag("root"))
 class SquareRoot {
 
     @Test
