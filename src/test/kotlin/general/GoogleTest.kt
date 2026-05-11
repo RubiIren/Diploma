@@ -15,12 +15,16 @@ import org.junit.jupiter.api.Test
 @Story("Addition tests")
 @Tags(Tag("google"), Tag("driverProvider"))
 class GoogleTest : BaseUiTest() {
+
     @Test
     @DisplayName("Проверка открытия Google")
     @Disabled("Необходимо в BaseUiTest раскомментировать настройки для WebDriver")
     fun testOpenGoogle() {
+
         openBrowser()
+
         val title = Selenide.title()
+
         title shouldBe "Google"
     }
 }

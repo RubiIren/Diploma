@@ -4,13 +4,13 @@ import com.codeborne.selenide.Condition.visible
 import com.codeborne.selenide.Selectors.shadowCss
 import com.codeborne.selenide.Selenide.element
 import io.qameta.allure.Step
-import org.example.frontend.helpers.Wrappers.Companion.byDataTestId
+import org.example.frontend.helpers.Wrappers.Companion.byTestId
 
 class AuthPopup {
-    private val inputEmail get() = element(byDataTestId("login-email")).find(shadowCss("input"))
-    private val inputPassword get() = element(byDataTestId("login-password")).find(shadowCss("input"))
-    private val txtError get() = element(byDataTestId("login-error"))
-    private val btnLogin get() = element(byDataTestId("login-submit"))
+    private val inputEmail get() = element(byTestId("login-email")).find(shadowCss("input"))
+    private val inputPassword get() = element(byTestId("login-password")).find(shadowCss("input"))
+    private val txtError get() = element(byTestId("login-error"))
+    private val btnLogin get() = element(byTestId("login-submit"))
 
     @Step("Заполнить поле email")
     fun inputEmail(email: String): AuthPopup {

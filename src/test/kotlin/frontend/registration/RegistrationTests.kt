@@ -35,6 +35,7 @@ class RegistrationTests : BaseUiTest() {
         MainPage()
             .navigateHeader()
             .clickLink("Join")
+
         val error = RegistrationPopup()
             .inputUsername(name)
             .inputEmail(email)
@@ -54,6 +55,7 @@ class RegistrationTests : BaseUiTest() {
         MainPage()
             .navigateHeader()
             .clickLink("Join")
+
         RegistrationPopup()
             .inputUsername("User")
             .inputEmail(randomEmail)

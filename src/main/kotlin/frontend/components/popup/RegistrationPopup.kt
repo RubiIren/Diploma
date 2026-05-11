@@ -4,15 +4,15 @@ import com.codeborne.selenide.Condition.visible
 import com.codeborne.selenide.Selectors.shadowCss
 import com.codeborne.selenide.Selenide.element
 import io.qameta.allure.Step
-import org.example.frontend.helpers.Wrappers.Companion.byDataTestId
+import org.example.frontend.helpers.Wrappers.Companion.byTestId
 
 class RegistrationPopup {
-    private val linkAuth get() = element(byDataTestId("create-login"))
-    private val inputUsername get() = element(byDataTestId("create-username")).find(shadowCss("input"))
-    private val inputEmail get() = element(byDataTestId("create-email")).find(shadowCss("input"))
-    private val inputPassword get() = element(byDataTestId("create-password")).find(shadowCss("input"))
-    private val txtError get() = element(byDataTestId("create-error"))
-    private val btnCreate get() = element(byDataTestId("create-submit"))
+    private val linkAuth get() = element(byTestId("create-login"))
+    private val inputUsername get() = element(byTestId("create-username")).find(shadowCss("input"))
+    private val inputEmail get() = element(byTestId("create-email")).find(shadowCss("input"))
+    private val inputPassword get() = element(byTestId("create-password")).find(shadowCss("input"))
+    private val txtError get() = element(byTestId("create-error"))
+    private val btnCreate get() = element(byTestId("create-submit"))
 
     @Step("Нажать на ссылку для перехода к авторизации")
     fun clickLink(): RegistrationPopup {
