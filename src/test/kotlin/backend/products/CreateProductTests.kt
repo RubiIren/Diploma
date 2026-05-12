@@ -70,4 +70,21 @@ class CreateProductTests : Controllers() {
         response.code shouldBe 400
         response.reason shouldBe "description cannot be null or empty"
     }
+
+    @Test
+    @DisplayName("Получение ошибки при отсутствии токена: The token is invalid.")
+    fun testCreateProductErrorNoToken() {
+        val response =
+            products.createProduct("",
+               CreateProductRequest(
+                    "Coffee SPb",
+                    7.49,
+                    "test"
+                )
+            )
+                .getErrorAsObject<ErrorResponse>()
+
+        response.code shouldBe 401
+        response.reason shouldBe "The token is invalid."
+    }
 }

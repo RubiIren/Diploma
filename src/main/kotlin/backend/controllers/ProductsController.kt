@@ -26,7 +26,6 @@ class ProductsController: Endpoints() {
     @Step("Создание нового продукта")
     fun createProduct(token: String = authHelper.getAdminToken(), product: CreateProductRequest): Response<CreateProductResponse> {
         return productsEndpoints.postCreateProduct(token, product).execute()
-            .also { GarbageCollector.products.add(it.getAsObject().id) }
     }
 
     @Step("Удаление продукта с id: {id}")
