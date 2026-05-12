@@ -7,6 +7,7 @@ import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
 
 class Extensions {
     companion object {
+
         fun ElementsCollection.getFirstOrAsserted(text: String): SelenideElement {
             return this.firstOrNull { it.text == text }
                 ?.shouldBe(visible)  // Ждём видимости найденного элемента

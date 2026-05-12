@@ -16,7 +16,7 @@ import org.junit.jupiter.params.provider.CsvSource
 
 @Feature("Registration")
 @Story("Registration tests")
-@Tags(Tag("registration"), Tag("regress"), Tag("auth"))
+@Tags(Tag("registration"), Tag("regress"), Tag("front"))
 class RegistrationTests : BaseUiTest() {
 
     @ParameterizedTest
@@ -48,7 +48,7 @@ class RegistrationTests : BaseUiTest() {
 
     @Test
     @DisplayName("Проверка создания пользователя")
-    @Tag("crit")
+    @Tags(Tag("crit"), Tag("auth"))
     fun testAuthUser() {
         val randomEmail = "user${System.currentTimeMillis()}@test.com"
 
