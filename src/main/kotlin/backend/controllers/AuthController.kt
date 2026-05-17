@@ -10,6 +10,6 @@ class AuthController: Endpoints() {
 
     @Step("Авторизация с email: {email} и паролем: {password}")
     fun login(email: String, password: String): Response<LoginResponse> {
-        return authEndpoints.postLogin(body = LoginRequest(email = email, password = password)).execute()
+        return auth.postLogin(body = LoginRequest(email = email, password = password)).execute()
     }
 }

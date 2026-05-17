@@ -1,14 +1,15 @@
 package org.example.frontend.components.list
 
-import com.codeborne.selenide.ElementsCollection
+import com.codeborne.selenide.Selenide.elements
 import com.codeborne.selenide.SelenideElement
 import org.example.frontend.helpers.Wrappers.Companion.byTestGroup
 import org.example.frontend.helpers.toPrice
 
-class ProductsItems(val items: ElementsCollection) {
+class ProductItems {
+    private val listProducts get() = elements(byTestGroup("product-card"))
 
     fun getItems(): List<ProductItem> {
-        return items
+        return listProducts
             .map {
                 ProductItem(
                     image = it.find(byTestGroup("product-card-image")),
@@ -27,7 +28,7 @@ data class ProductItem(
     val image: SelenideElement,
     val name: String,
     val description: String,
-    val price: Float,
+    val price: Double,
     val btnDecrement: SelenideElement,
     var quantity: Int,
     val btnIncrement: SelenideElement,

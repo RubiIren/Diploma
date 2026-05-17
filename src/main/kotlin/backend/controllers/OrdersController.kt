@@ -14,7 +14,7 @@ class OrdersController : Endpoints() {
 
     @Step("Создание заказ")
     fun createOrder(token: String = authHelper.getAdminToken(), body: CreateOrderRequest): CreateOrdersResponse {
-        return ordersEndpoints.postCreateOrder(token, body).execute().getAsObject().also {
+        return orders.postCreateOrder(token, body).execute().getAsObject().also {
             GarbageCollector.orders.add(it.id)
         }
     }

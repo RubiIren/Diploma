@@ -1,8 +1,13 @@
 package frontend.registration
 
+import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
 import io.qameta.allure.Story
+import org.example.backend.api.extension.Extensions.Companion.getAsObject
+import org.example.backend.api.models.users.defaultUser
+import org.example.backend.controllers.Controllers
+import org.example.database.JDBCHelper
 import org.example.frontend.components.HeaderComponent
 import org.example.frontend.components.popup.RegistrationPopup
 import org.example.frontend.helpers.BaseUiTest
@@ -18,6 +23,8 @@ import org.junit.jupiter.params.provider.CsvSource
 @Story("Registration tests")
 @Tags(Tag("registration"), Tag("regress"), Tag("front"))
 class RegistrationTests : BaseUiTest() {
+    private val controllers = Controllers()
+
 
     @ParameterizedTest
     @Tag("error")
@@ -66,5 +73,33 @@ class RegistrationTests : BaseUiTest() {
             .checkAvatarUser()
 
         avatar shouldBe true
+    }
+
+    @Test
+    @DisplayName("Проверка создания пользователя UI + Backend + DB")
+    fun testRegUserJDBC() {
+        val randomEmail = "user${System.currentTimeMillis()}@test.com"
+        val jdbcClient = JDBCHelper()
+
+        MainPage()
+            .navigateHeader()
+            .clickLink("Join")
+
+        RegistrationPopup()
+            .inputUsername("User")
+            .inputEmail(randomEmail)
+            .inputPassword("12345")
+            .clickCreateUser()
+
+        val users = jdbcClient.getUsers()
+        val createdUser = users.find { it.email == randomEmail }
+
+        val login = controllers.auth.login(email = randomEmail, password = "12345").getAsObject()
+
+        login.accessToken.length shouldBeGreaterThan 10
+        login.id shouldBe createdUser?.id
+
+        createdUser?.email shouldBe randomEmail
+        createdUser?.username shouldBe "User"
     }
 }

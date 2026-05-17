@@ -17,19 +17,19 @@ class UsersController : Endpoints() {
 
     @Step("Создание пользователя с username: {username} email: {email} and password: {password}")
     fun createUser(body: CreateUserRequest): Response<CreateUserResponse> {
-        return usersEndpoints.createUser(body).execute()
+        return users.createUser(body).execute()
             .also { GarbageCollector.user.add(it.getAsObject().id) }
 
     }
 
     @Step("Получить пользователя с id: {id}")
     fun getUserById(token: String = authHelper.getAdminToken(), id: Int): Response<CreateUserResponse> {
-        return usersEndpoints.getUserById(token, id).execute()
+        return users.getUserById(token, id).execute()
     }
 
     @Step("Удалить пользователя с id: {id}")
     fun deleteUserById(token: String = authHelper.getAdminToken(), id: Int): Response<ResponseBody> {
-        return usersEndpoints.deleteUserById(token, id).execute()
+        return users.deleteUserById(token, id).execute()
     }
 
     @Step("Изменить пользователя с id: {id}r")
@@ -38,11 +38,11 @@ class UsersController : Endpoints() {
         id: Int,
         body: UpdateRequest
     ): Response<CreateUserResponse> {
-        return usersEndpoints.putUserById(token, id, body).execute()
+        return users.putUserById(token, id, body).execute()
     }
 
     @Step("Получить всех пользователей")
     fun getAllUsers(token: String = authHelper.getAdminToken(), offset: Int = 0, limit: Int = 10): Response<List<CreateUserResponse>> {
-        return usersEndpoints.getUsers(token, offset, limit).execute()
+        return users.getUsers(token, offset, limit).execute()
     }
 }

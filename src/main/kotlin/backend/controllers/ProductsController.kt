@@ -15,21 +15,22 @@ class ProductsController: Endpoints() {
 
     @Step("Получение всех продуктов")
     fun getProducts(): Response<List<CreateProductResponse>> {
-        return productsEndpoints.getProducts().execute()
+        return products.getProducts().execute()
     }
 
     @Step("Получение продуктов с id: {id}")
     fun getProductById(id: Any): Response<CreateProductResponse> {
-        return productsEndpoints.getProductById(id).execute()
+        return products.getProductById(id).execute()
     }
 
     @Step("Создание нового продукта")
     fun createProduct(token: String = authHelper.getAdminToken(), product: CreateProductRequest): Response<CreateProductResponse> {
-        return productsEndpoints.postCreateProduct(token, product).execute()
+        return products.postCreateProduct(token, product).execute()
+            .also { GarbageCollector.products.add(it.getAsObject().id) }
     }
 
     @Step("Удаление продукта с id: {id}")
     fun deleteProductById(token: String = authHelper.getAdminToken(), id: Any): Response<ResponseBody> {
-        return productsEndpoints.deleteProductById(token, id).execute()
+        return products.deleteProductById(token, id).execute()
     }
 }
