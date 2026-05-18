@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selectors.shadowCss
 import com.codeborne.selenide.Selenide.*
 import io.qameta.allure.Step
 import org.example.frontend.helpers.Wrappers.Companion.byTestGroup
-import org.openqa.selenium.By
 
 private val inputOrderId get() = element("[placeholder='Order ID']").find(shadowCss("input"))
 private val txtOrderId get() = elements(byTestGroup("order-id"))

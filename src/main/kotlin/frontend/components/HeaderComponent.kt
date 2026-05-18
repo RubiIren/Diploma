@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition.visible
 import com.codeborne.selenide.Selenide.element
 import com.codeborne.selenide.Selenide.elements
 import io.qameta.allure.Step
-import okhttp3.internal.wait
 import org.example.frontend.components.popup.CartPopup
 import org.example.frontend.helpers.Extensions.Companion.getFirstOrAsserted
 import org.example.frontend.helpers.Wrappers.Companion.byTestGroup

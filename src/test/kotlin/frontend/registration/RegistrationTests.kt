@@ -27,7 +27,6 @@ class RegistrationTests : BaseUiTest() {
     val randomEmail = "user${System.currentTimeMillis()}@test.com"
 
 
-
     @ParameterizedTest
     @Tag("error")
     @CsvSource(

@@ -5,7 +5,6 @@ import io.qameta.allure.Feature
 import io.qameta.allure.Story
 import org.example.backend.controllers.Controllers
 import org.example.frontend.components.HeaderComponent
-import org.example.frontend.components.popup.CartPopup
 import org.example.frontend.components.popup.OrderPopup
 import org.example.frontend.helpers.BaseUiTest
 import org.example.frontend.pages.MainPage
@@ -14,12 +13,11 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Tags
 import org.junit.jupiter.api.Test
-import kotlin.collections.first
 
 @Feature("Order")
 @Story("Order change status")
 @Tags(Tag("order"), Tag("regress"), Tag("ui"))
-class CreateOrdersTest  : BaseUiTest() {
+class CreateOrdersTest : BaseUiTest() {
     private val controllers = Controllers()
 
     @Test

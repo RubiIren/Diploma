@@ -6,7 +6,6 @@ import io.qameta.allure.Story
 import org.example.backend.api.models.orders.CreateOrderRequest
 import org.example.backend.api.models.orders.UpdateOrderRequest
 import org.example.backend.controllers.Controllers
-import org.example.database.JDBCHelperOrder
 import org.example.frontend.helpers.BaseUiTest
 import org.example.frontend.pages.OrdersPage
 import org.junit.jupiter.api.Tag
