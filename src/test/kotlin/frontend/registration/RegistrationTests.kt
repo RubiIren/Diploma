@@ -5,9 +5,8 @@ import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
 import io.qameta.allure.Story
 import org.example.backend.api.extension.Extensions.Companion.getAsObject
-import org.example.backend.api.models.users.defaultUser
 import org.example.backend.controllers.Controllers
-import org.example.database.JDBCHelper
+import org.example.database.JDBCHelperUser
 import org.example.frontend.components.HeaderComponent
 import org.example.frontend.components.popup.RegistrationPopup
 import org.example.frontend.helpers.BaseUiTest
@@ -24,6 +23,9 @@ import org.junit.jupiter.params.provider.CsvSource
 @Tags(Tag("registration"), Tag("regress"), Tag("front"))
 class RegistrationTests : BaseUiTest() {
     private val controllers = Controllers()
+    val jdbcClient = JDBCHelperUser()
+    val randomEmail = "user${System.currentTimeMillis()}@test.com"
+
 
 
     @ParameterizedTest
@@ -57,7 +59,6 @@ class RegistrationTests : BaseUiTest() {
     @DisplayName("Проверка создания пользователя")
     @Tags(Tag("crit"), Tag("auth"))
     fun testAuthUser() {
-        val randomEmail = "user${System.currentTimeMillis()}@test.com"
 
         MainPage()
             .navigateHeader()
@@ -79,7 +80,6 @@ class RegistrationTests : BaseUiTest() {
     @DisplayName("Проверка создания пользователя UI + Backend + DB")
     fun testRegUserJDBC() {
         val randomEmail = "user${System.currentTimeMillis()}@test.com"
-        val jdbcClient = JDBCHelper()
 
         MainPage()
             .navigateHeader()
@@ -101,5 +101,7 @@ class RegistrationTests : BaseUiTest() {
 
         createdUser?.email shouldBe randomEmail
         createdUser?.username shouldBe "User"
+
+        jdbcClient.deleteUserById(createdUser?.id!!)
     }
 }

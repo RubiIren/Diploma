@@ -2,6 +2,7 @@ package org.example.backend.api.models.orders
 
 data class CreateOrdersResponse(
     var id: Int,
+    val userId: Int?,
     var orderStatus: String,
     var products: List<Product>,
     var totalAmount: Double,

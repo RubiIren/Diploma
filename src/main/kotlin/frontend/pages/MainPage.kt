@@ -8,6 +8,7 @@ import org.example.frontend.components.list.ProductItem
 import org.example.frontend.components.list.ProductItems
 import org.example.frontend.helpers.Wrappers.Companion.byTestId
 
+
 class MainPage {
 
     private val txtBannerTitle get() = element(byTestId("main-image-text"))
@@ -34,4 +35,5 @@ class MainPage {
     fun getPopularProducts(): List<ProductItem> {
         return listPopularProducts
     }
+
 }

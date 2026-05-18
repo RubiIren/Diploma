@@ -9,5 +9,5 @@ import retrofit2.http.POST
 interface AuthEndpoints {
 
     @POST("auth/login")
-    fun postLogin(@Body body: LoginRequest) : Call<LoginResponse>
+    fun postLogin(@Body body: LoginRequest): Call<LoginResponse>
 }

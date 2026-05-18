@@ -4,7 +4,7 @@ import java.sql.DriverManager
 import java.sql.ResultSet
 import java.sql.Statement
 
-class JDBCHelper {
+class JDBCHelperUser {
 
     private val jdbcUrl = "jdbc:postgresql://localhost:5432/playground"
     private val username: String = "postgres"
@@ -37,6 +37,22 @@ class JDBCHelper {
         }
 
         return users
+    }
+
+    fun deleteUserById(Id: Int): Boolean {
+        try {
+            val sql = "DELETE FROM table_users WHERE id = ?"
+            val preparedStatement = client.prepareStatement(sql)
+            preparedStatement.setInt(1, Id)
+
+            val rowsAffected = preparedStatement.executeUpdate()
+            preparedStatement.close()
+
+            return rowsAffected > 0
+        } catch (e: Exception) {
+            println("Error deleting order with ID $Id: ${e.message}")
+            return false
+        }
     }
 }
 

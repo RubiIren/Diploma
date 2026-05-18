@@ -42,7 +42,11 @@ class UsersController : Endpoints() {
     }
 
     @Step("Получить всех пользователей")
-    fun getAllUsers(token: String = authHelper.getAdminToken(), offset: Int = 0, limit: Int = 10): Response<List<CreateUserResponse>> {
+    fun getAllUsers(
+        token: String = authHelper.getAdminToken(),
+        offset: Int = 0,
+        limit: Int = 10
+    ): Response<List<CreateUserResponse>> {
         return users.getUsers(token, offset, limit).execute()
     }
 }

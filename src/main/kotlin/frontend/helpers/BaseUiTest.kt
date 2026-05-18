@@ -12,7 +12,7 @@ open class BaseUiTest {
         Configuration.timeout = 15_000
         Configuration.pageLoadStrategy = "normal"
         Configuration.reopenBrowserOnFail = true
-        Configuration.browserSize = "1920*1080"
+        Configuration.browserSize = "1920*1680"
 
         //  Configuration.browser = DriverProvider::class.java.name //  WebDriverProvider
     }

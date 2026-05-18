@@ -5,11 +5,7 @@ import io.kotest.matchers.shouldBe
 import io.qameta.allure.Feature
 import io.qameta.allure.Story
 import org.example.frontend.helpers.BaseUiTest
-import org.junit.jupiter.api.Disabled
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Tag
-import org.junit.jupiter.api.Tags
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 
 @Feature("DriverProvider")
 @Story("Addition tests")

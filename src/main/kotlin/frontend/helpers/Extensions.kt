@@ -3,7 +3,9 @@ package org.example.frontend.helpers
 import com.codeborne.selenide.Condition.visible
 import com.codeborne.selenide.ElementsCollection
 import com.codeborne.selenide.SelenideElement
+import com.codeborne.selenide.WebDriverRunner
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
+import org.openqa.selenium.JavascriptExecutor
 
 class Extensions {
     companion object {

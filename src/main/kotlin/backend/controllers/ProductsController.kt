@@ -10,7 +10,7 @@ import org.example.backend.helpers.AuthorizationHelper
 import org.example.backend.helpers.GarbageCollector
 import retrofit2.Response
 
-class ProductsController: Endpoints() {
+class ProductsController : Endpoints() {
     val authHelper = AuthorizationHelper()
 
     @Step("Получение всех продуктов")
@@ -24,7 +24,10 @@ class ProductsController: Endpoints() {
     }
 
     @Step("Создание нового продукта")
-    fun createProduct(token: String = authHelper.getAdminToken(), product: CreateProductRequest): Response<CreateProductResponse> {
+    fun createProduct(
+        token: String = authHelper.getAdminToken(),
+        product: CreateProductRequest
+    ): Response<CreateProductResponse> {
         return products.postCreateProduct(token, product).execute()
             .also { GarbageCollector.products.add(it.getAsObject().id) }
     }

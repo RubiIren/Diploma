@@ -23,4 +23,10 @@ class CartPopup {
     fun getTotalPrice(): Double {
         return txtTotalPrice.text.toPrice()
     }
+
+    @Step("Создать заказ")
+    fun createOrder(): CartPopup {
+        btnCheckout.click()
+        return this
+    }
 }

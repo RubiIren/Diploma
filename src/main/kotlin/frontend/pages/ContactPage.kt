@@ -8,7 +8,7 @@ class ContactPage {
 
     private val txtNameProject get() = element(By.ByClassName("contact-title"))
 
-    @Step("Получить название раздела ")
+    @Step("Получить название раздела")
     fun getNameProject(): String {
         return txtNameProject.text
     }

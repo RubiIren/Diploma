@@ -5,7 +5,6 @@ import io.qameta.allure.Feature
 import io.qameta.allure.Story
 import org.example.backend.api.extension.Extensions.Companion.getAsObject
 import org.example.backend.api.extension.Extensions.Companion.getErrorAsObject
-import org.example.backend.api.extension.Extensions.Companion.toBearer
 import org.example.backend.api.models.ErrorResponse
 import org.example.backend.api.models.products.CreateProductRequest
 import org.example.backend.controllers.Controllers
@@ -75,8 +74,9 @@ class CreateProductTests : Controllers() {
     @DisplayName("Получение ошибки при отсутствии токена: The token is invalid.")
     fun testCreateProductErrorNoToken() {
         val response =
-            products.createProduct("",
-               CreateProductRequest(
+            products.createProduct(
+                "",
+                CreateProductRequest(
                     "Coffee SPb",
                     7.49,
                     "test"
